@@ -110,7 +110,7 @@ public class Personnage implements  IPersonnage{
     }
     //////////////////////// METHODE /////////////////////
     public String toString(){
-        return "PV[" + getPoint_vie() + "/" + getPV_MAX() + ", PM[" + getPoint_Mana() + "/" + getMANA_MAX() + "]";
+        return "PV[" + getPoint_vie() + "/" + getPV_MAX() + "], PM[" + getPoint_Mana() + "/" + getMANA_MAX() + "]";
     }
     public void monteeNiveau(int value,int value2){
         setMANA_MAX(value);
