@@ -1,0 +1,153 @@
+package Personnage;
+import Capacité.etat;
+import Capacité.LesCapacites;
+import java.util.ArrayList;
+import java.util.List;
+public class Personnage implements  IPersonnage{
+    ////////// ATTRIBUT ////////////
+    private int point_vie;
+    private final int PV_MAX;
+    private int point_Mana;
+    private final int MANA_MAX;
+    private int intelligence;
+    private int force;
+    private int agile;
+    private int resPhysique;
+    private int resMagic;
+    private etat etat;
+    private Boolean vivant;
+    List<LesCapacites> tout;
+    private LesCapacites[] quatreCapacite = new LesCapacites[4];
+    private ArrayList<LesCapacites> CapaciteTout;
+    ///////////////////CONSTRUCTEUR ////////////////////
+    public Personnage(int point_vie, int point_Mana, int intelligence, int force, int agile, int resPhysique, int resMagic, etat etat, Boolean vivant) {
+        this.point_vie = point_vie;
+        this.point_Mana = point_Mana;
+        this.intelligence = intelligence;
+        this.force = force;
+        this.agile = agile;
+        this.resPhysique = resPhysique;
+        this.resMagic = resMagic;
+        this.etat = etat;
+        this.vivant = true;
+        this.PV_MAX = point_vie;
+        this.MANA_MAX = point_Mana;
+        CapaciteTout = new ArrayList<LesCapacites>();
+    }
+    ////////////////// GETTER AND SETTER ///////////
+    public int getPoint_Mana() {
+        return point_Mana;
+    }
+    public void setPoint_Mana(int point_Mana) {
+        this.point_Mana = point_Mana;
+    }
+    public int getIntelligence() {
+        return intelligence;
+    }
+    public void setIntelligence(int intelligence) {
+        this.intelligence = intelligence;
+    }
+    public int getForce() {
+        return force;
+    }
+    public void setForce(int force) {
+        this.force = force;
+    }
+    public int getAgile() {
+        return agile;
+    }
+    public void setAgile(int agile) {
+        this.agile = agile;
+    }
+    public int getResPhysique() {
+        return resPhysique;
+    }
+    public void setResPhysique(int resPhysique) {
+        this.resPhysique = resPhysique;
+    }
+    public etat getEtat() {
+        return etat;
+    }
+    public void setEtat(etat etat) {
+        this.etat = etat;
+    }
+    public Boolean getVivant() {
+        return vivant;
+    }
+    public void setVivant(Boolean vivant) {
+        this.vivant = vivant;
+    }
+    public int getPoint_vie() {
+        return point_vie;
+    }
+    public void setPoint_vie(int point_vie) {
+        this.point_vie = point_vie;
+    }
+    public int getResMagic() {
+        return resMagic;
+    }
+    public void setResMagic(int resMagic) {
+        this.resMagic = resMagic;
+    }
+    public int getPV_MAX() {
+        return PV_MAX;
+    }
+    public int getMANA_MAX() {
+        return MANA_MAX;
+    }
+    public void setPV_MAX(int PV_MAX) {
+        PV_MAX = PV_MAX;
+    }
+    public void setMANA_MAX(int MANA_MAX) {
+        MANA_MAX = MANA_MAX;
+    }
+    //////////////////////// METHODE /////////////////////
+    public String toString(){
+        return "PV[ " + getPoint_vie() + "/" + getPV_MAX() + ", PM[" + getPoint_Mana() + "/" + getMANA_MAX() + "]";
+    }
+    public void monteeNiveau(int value,int value2){
+        setMANA_MAX(value);
+        setPV_MAX(value2);
+    }
+    public void Les4capacite(LesCapacites c, int position){
+        quatreCapacite[position] = c;
+    }
+    public void remplirListCapacite(LesCapacites c){
+        CapaciteTout.add(c);
+    }
+    public LesCapacites utilCapa(int numero){
+        return quatreCapacite[numero];
+    }
+    public void subirdegats(LesCapacites capa, int degat){
+        if(capa.isGenre()){
+            degat = degat - getResMagic();
+            int pvrestant = getPoint_vie();
+            pvrestant = pvrestant - degat;
+            setPoint_vie(getPoint_vie() - degat);
+        }else{
+            degat = degat - getResPhysique();
+            int pvrestant = getPoint_vie();
+            pvrestant = pvrestant - degat;
+            setPoint_vie(getPoint_vie() - degat);
+        }
+    }
+    public void isVivant(Personnage p){
+        if(p.getPoint_vie() < 0){
+            p.setVivant(false);
+            p.setEtat(Capacité.etat.MORT);
+        }else if (p.getPoint_vie() >= 20 ){
+            System.out.println("Toujours vivant(e)");
+            p.setEtat(Capacité.etat.FORT);
+        }else if (p.getPoint_vie() < 5){
+            System.out.println("Toujours vivant(e)");
+            p.setEtat(Capacité.etat.FAIBLE);
+        }else{
+            System.out.println("Toujours vivant(e)");
+            p.setEtat(Capacité.etat.NORMAL);
+        }
+    }
+    public void recup(){
+        setPoint_vie(getPV_MAX());
+        setPoint_Mana(getMANA_MAX());
+    }
+}
