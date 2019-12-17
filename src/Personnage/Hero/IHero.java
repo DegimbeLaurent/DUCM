@@ -4,6 +4,19 @@ import Capacité.etat;
 import Personnage.IPersonnage;
 import Personnage.Personnage;
 public interface IHero extends IPersonnage {
+
+    int getEndurance();
+    void setEndurance(int end);
+    int getChance();
+    void setChance(int ch);
+    int getExperience();
+    void setExperience(int a );
+    int getNiveau();
+    void setNiveau(int a);
+    int getExpniv();
+    void setExpniv(int value);
+    int getEndmax();
+    void setEndmax(int value);
     int getPoint_Mana();
     void setPoint_Mana(int point_Mana);
     int getIntelligence();
@@ -24,6 +37,7 @@ public interface IHero extends IPersonnage {
     void setResMagic(int resMagic);
     void subirdegats(LesCapacites capa, int degat);
     void isVivant(Personnage p);
+//////////////////Perso methode //////////////
     void recup();
     String toString();
     void Les4capacite(LesCapacites c, int position);
@@ -31,8 +45,15 @@ public interface IHero extends IPersonnage {
     void remplirListCapacite(LesCapacites c);
     void monteeNiveau(int value, int value2);
     /////////////// Hero ////////////////////
-    void gainExp();
+    void gainExp(int value);
     String statut();
-    void ajouters
+    void ajouterArmure();
+    void ajouterArme();
+    void perteEnd();
+    void gainEnd(int gain);
+    void recupHop();
+    void monterLvl();
+    void recupstat();
+
 }
 
