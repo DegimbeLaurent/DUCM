@@ -6,9 +6,9 @@ import java.util.List;
 public class Personnage implements  IPersonnage{
     ////////// ATTRIBUT ////////////
     private int point_vie;
-    private final int PV_MAX;
+    private int PV_MAX;
     private int point_Mana;
-    private final int MANA_MAX;
+    private int MANA_MAX;
     private int intelligence;
     private int force;
     private int agile;
@@ -95,15 +95,15 @@ public class Personnage implements  IPersonnage{
     public int getMANA_MAX() {
         return MANA_MAX;
     }
-    public void setPV_MAX(int PV_MAX) {
-        PV_MAX = PV_MAX;
+    public void setPV_MAX(int value) {
+        PV_MAX = value;
     }
-    public void setMANA_MAX(int MANA_MAX) {
-        MANA_MAX = MANA_MAX;
+    public void setMANA_MAX(int value) {
+        MANA_MAX = value;
     }
     //////////////////////// METHODE /////////////////////
     public String toString(){
-        return "PV[ " + getPoint_vie() + "/" + getPV_MAX() + ", PM[" + getPoint_Mana() + "/" + getMANA_MAX() + "]";
+        return "PV[" + getPoint_vie() + "/" + getPV_MAX() + ", PM[" + getPoint_Mana() + "/" + getMANA_MAX() + "]";
     }
     public void monteeNiveau(int value,int value2){
         setMANA_MAX(value);
