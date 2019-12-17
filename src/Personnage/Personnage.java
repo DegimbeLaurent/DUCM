@@ -19,6 +19,8 @@ public class Personnage implements  IPersonnage{
     List<LesCapacites> tout;
     private LesCapacites[] quatreCapacite = new LesCapacites[4];
     private ArrayList<LesCapacites> CapaciteTout;
+    private long id;
+    private static long IDNEXT = 1l;
     ///////////////////CONSTRUCTEUR ////////////////////
     public Personnage(int point_vie, int point_Mana, int intelligence, int force, int agile, int resPhysique, int resMagic, etat etat, Boolean vivant) {
         this.point_vie = point_vie;
@@ -33,6 +35,8 @@ public class Personnage implements  IPersonnage{
         this.PV_MAX = point_vie;
         this.MANA_MAX = point_Mana;
         CapaciteTout = new ArrayList<LesCapacites>();
+        this.id = IDNEXT;
+        IDNEXT++;
     }
     ////////////////// GETTER AND SETTER ///////////
     public int getPoint_Mana() {
@@ -100,6 +104,9 @@ public class Personnage implements  IPersonnage{
     }
     public void setMANA_MAX(int value) {
         MANA_MAX = value;
+    }
+    public long getId() {
+        return id;
     }
     //////////////////////// METHODE /////////////////////
     public String toString(){
