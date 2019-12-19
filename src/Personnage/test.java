@@ -2,6 +2,9 @@ package Personnage;
 
 import Capacité.LesCapacites;
 import Capacité.etat;
+import Outils.Arme;
+import Outils.Armure;
+import Personnage.Hero.Hero;
 
 public class test {
 
