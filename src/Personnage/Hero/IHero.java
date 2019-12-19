@@ -1,6 +1,8 @@
 package Personnage.Hero;
 import Capacité.LesCapacites;
 import Capacité.etat;
+import Outils.Arme;
+import Outils.Armure;
 import Personnage.IPersonnage;
 import Personnage.Personnage;
 public interface IHero extends IPersonnage {
@@ -47,13 +49,19 @@ public interface IHero extends IPersonnage {
     /////////////// Hero ////////////////////
     void gainExp(int value);
     String statut();
-    void ajouterArmure();
-    void ajouterArme();
+    void ajouterArmure(Armure a );
+    void ajouterArme(Arme a);
     void perteEnd();
     void gainEnd(int gain);
     void recupHop();
     void monterLvl();
     void recupstat();
+    void statutArmer();
+    void vueArme();
+    void vueArmure();
+    int mainArmer();
+    void armer(Arme a);
+    Armure rechercher(String zone);
 
 }
 
