@@ -39,6 +39,20 @@ public class Personnage implements  IPersonnage{
         IDNEXT++;
         quatreCapacite = new LesCapacites[]{null, null, null, null};
     }
+    ///////  Le personnage test ///////
+    public Personnage(){
+        this.point_vie = 15;
+        this.point_Mana = 10;
+        this.force = 15;
+        this.intelligence = 15;
+        this.id = IDNEXT;
+        IDNEXT++;
+        this.etat = Capacité.etat.NORMAL;
+        this.vivant = true;
+        this.resMagic = 1;
+        this.resPhysique = 1;
+        this.agile = 9;
+    }
     ////////////////// GETTER AND SETTER ///////////
     public int getPoint_Mana() {
         return point_Mana;
@@ -130,8 +144,8 @@ public class Personnage implements  IPersonnage{
     public LesCapacites utilCapa(int numero){
         return quatreCapacite[numero];
     }
-    public void subirdegats(boolean capa, int degat){
-        if(capa){
+    public void subirdegats(LesCapacites capa, int degat){
+        if(capa.isGenre()){
             degat = degat - getResMagic();
             int pvrestant = getPoint_vie();
             pvrestant = pvrestant - degat;
@@ -171,4 +185,5 @@ public class Personnage implements  IPersonnage{
         }
         return nb;
     }
+
 }

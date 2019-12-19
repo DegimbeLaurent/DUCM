@@ -26,7 +26,7 @@ public interface IPersonnage  {
     LesCapacites[] getQuatreCapacite();
     long getId();
     //////////////////////// METHODE ///////////////
-    void subirdegats(boolean capa , int degat);
+    void subirdegats(LesCapacites capa , int degat);
     void isVivant(Personnage p);
     void recup();
     String toString();
