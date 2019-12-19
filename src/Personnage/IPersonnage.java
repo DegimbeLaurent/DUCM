@@ -20,11 +20,13 @@ public interface IPersonnage  {
     Boolean getVivant();
     void setVivant(Boolean vivant);
     int getPoint_vie();
-    public void setPoint_vie(int point_vie);
-    public int getResMagic();
-    public void setResMagic(int resMagic);
+    void setPoint_vie(int point_vie);
+    int getResMagic();
+    void setResMagic(int resMagic);
+    LesCapacites[] getQuatreCapacite();
+    long getId();
     //////////////////////// METHODE ///////////////
-    void subirdegats(LesCapacites capa , int degat);
+    void subirdegats(boolean capa , int degat);
     void isVivant(Personnage p);
     void recup();
     String toString();
@@ -32,5 +34,6 @@ public interface IPersonnage  {
     LesCapacites utilCapa(int numero);
     void remplirListCapacite(LesCapacites c);
     void monteeNiveau(int value, int value2);
+    int nbcapacite();
 
 }

@@ -17,7 +17,7 @@ public class Personnage implements  IPersonnage{
     private etat etat;
     private Boolean vivant;
     List<LesCapacites> tout;
-    private LesCapacites[] quatreCapacite = new LesCapacites[4];
+    private LesCapacites[] quatreCapacite;
     private ArrayList<LesCapacites> CapaciteTout;
     private long id;
     private static long IDNEXT = 1l;
@@ -37,6 +37,7 @@ public class Personnage implements  IPersonnage{
         CapaciteTout = new ArrayList<LesCapacites>();
         this.id = IDNEXT;
         IDNEXT++;
+        quatreCapacite = new LesCapacites[]{null, null, null, null};
     }
     ////////////////// GETTER AND SETTER ///////////
     public int getPoint_Mana() {
@@ -108,6 +109,10 @@ public class Personnage implements  IPersonnage{
     public long getId() {
         return id;
     }
+    public LesCapacites[] getQuatreCapacite() {
+        return quatreCapacite;
+    }
+
     //////////////////////// METHODE /////////////////////
     public String toString(){
         return "PV[" + getPoint_vie() + "/" + getPV_MAX() + "], PM[" + getPoint_Mana() + "/" + getMANA_MAX() + "]";
@@ -125,8 +130,8 @@ public class Personnage implements  IPersonnage{
     public LesCapacites utilCapa(int numero){
         return quatreCapacite[numero];
     }
-    public void subirdegats(LesCapacites capa, int degat){
-        if(capa.isGenre()){
+    public void subirdegats(boolean capa, int degat){
+        if(capa){
             degat = degat - getResMagic();
             int pvrestant = getPoint_vie();
             pvrestant = pvrestant - degat;
@@ -156,5 +161,14 @@ public class Personnage implements  IPersonnage{
     public void recup(){
         setPoint_vie(getPV_MAX());
         setPoint_Mana(getMANA_MAX());
+    }
+    public int nbcapacite(){
+        int nb = 0;
+        for (LesCapacites lesCapacites : quatreCapacite) {
+            if (lesCapacites != null) {
+                nb++;
+            }
+        }
+        return nb;
     }
 }
