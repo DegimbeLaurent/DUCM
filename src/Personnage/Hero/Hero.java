@@ -21,8 +21,8 @@ public class Hero extends Personnage implements IHero{
     ArrayList<Armure> tabArmure;
 
 /////////////////// Construction /////////////////////
-    public Hero(int point_vie, int point_Mana, int intelligence, int force, int agile, int resPhysique, int resMagic, Capacité.etat etat, Boolean vivant,int endurance,int chance) {
-        super(point_vie, point_Mana, intelligence, force, agile, resPhysique, resMagic, etat, vivant);
+    public Hero(int point_vie, int point_Mana, int intelligence, int force, int agile, int resPhysique, int resMagic,int endurance,int chance) {
+        super(point_vie, point_Mana, intelligence, force, agile, resPhysique, resMagic);
         this.chance = chance;
         this.endurance = endurance;
         this.experience = 0;
