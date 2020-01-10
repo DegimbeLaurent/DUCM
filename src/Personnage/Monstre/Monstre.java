@@ -1,9 +1,8 @@
 package Personnage.Monstre;
 
-//C:\Users\Student\AppData\Roaming\VisualParadigm\ws
-
 import Donjon.Salle.NatureElement;
 import Personnage.*;
+import Personnage.Monstre.AideFormation.EMosntre;
 import Personnage.Monstre.AideFormation.NomMonstre;
 
 public class Monstre extends Personnage implements IPersonnage {
@@ -11,8 +10,6 @@ public class Monstre extends Personnage implements IPersonnage {
     private int charisme;
     private boolean dompter;
     private NatureElement natType;
-    private NomMonstre nomMonstre;
-    private EMosntre lemonstre;
     private boolean vol;
     private String nom;
     private String race;
@@ -27,15 +24,15 @@ public class Monstre extends Personnage implements IPersonnage {
         this.vol = lemonstre.isVol();
         this.race = lemonstre.getRace();
     }
+
     public String toString() {
-        return "Monstre{" +
-                " Race= " + race +
-                super.toString2()+
-                "charisme=" + charisme +
-                ", dompter=" + dompter +
-                ", natType=" + natType +
-                ", nom=" + nom +
-                ", vol= " + vol +
-                '}';
+        return "Monstre {" +
+                " Race: " + race +
+                super.toString2() +
+                ", CH [" + charisme +"]"+
+                ", Dompté [" + dompter + "]"+
+                ", Nature [" + natType + "]"+
+                ", nom [ " + nom +
+                "] }";
     }
 }

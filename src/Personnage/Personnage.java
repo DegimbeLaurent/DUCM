@@ -1,7 +1,10 @@
 package Personnage;
 import Capacité.etat;
 import Capacité.LesCapacites;
+import Personnage.Monstre.AideFormation.EMosntre;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 public class Personnage implements  IPersonnage{
     ////////// ATTRIBUT ////////////
@@ -18,7 +21,7 @@ public class Personnage implements  IPersonnage{
     private Boolean vivant;
     List<LesCapacites> tout;
     private LesCapacites[] quatreCapacite;
-    private ArrayList<LesCapacites> CapaciteTout;
+    public ArrayList<LesCapacites> CapaciteTout = new ArrayList<LesCapacites>();
     private long id;
     private static long IDNEXT = 1l;
     ///////////////////CONSTRUCTEUR ////////////////////
@@ -34,7 +37,8 @@ public class Personnage implements  IPersonnage{
         this.vivant = true;
         this.PV_MAX = point_vie;
         this.MANA_MAX = point_Mana;
-        CapaciteTout = new ArrayList<LesCapacites>();
+        List<LesCapacites> capa =  Arrays.asList(LesCapacites.values());
+        CapaciteTout.addAll(capa);
         this.id = IDNEXT;
         IDNEXT++;
         quatreCapacite = new LesCapacites[]{null, null, null, null};
@@ -131,21 +135,16 @@ public class Personnage implements  IPersonnage{
     public String toString(){
         return "PV[" + getPoint_vie() + "/" + getPV_MAX() + "], PM[" + getPoint_Mana() + "/" + getMANA_MAX() + "]";
     }
-
     public String toString2() {
-        return "point_vie=" + point_vie +
-                ", point_Mana=" + point_Mana +
-                ", intelligence=" + intelligence +
-                ", force=" + force +
-                ", agile=" + agile +
-                ", resPhysique=" + resPhysique +
-                ", resMagic=" + resMagic +
-                ", etat=" + etat +
-                ", vivant=" + vivant +
-                ", id=" + id +
-                '}';
+        return ", PV [" + point_vie + "]"+
+                ", PM [" + point_Mana + "]"+
+                ", I [" + intelligence + "]"+
+                ", F [" + force + "]"+
+                ", A [" + agile + "]"+
+                ", RP [" + resPhysique + "]"+
+                ", RM [" + resMagic + "]"+
+                ", statut [" + etat + "]";
     }
-
     public void monteeNiveau(int value, int value2){
         setMANA_MAX(value);
         setPV_MAX(value2);
@@ -200,5 +199,4 @@ public class Personnage implements  IPersonnage{
         }
         return nb;
     }
-
 }
