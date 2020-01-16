@@ -10,15 +10,15 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class CreationMonstre  {
 
-    private int nivMonstre ;
-    private int nbMonstre ;
+    private int           nivMonstre ;
+    private int           nbMonstre ;
     private NatureElement element;
-    private NomMonstre nom;
-    private int valeurDeLaSalle;
-    private List<EMosntre> lesMonstre = new ArrayList<EMosntre>();
+    private NomMonstre    nom;
+    private int           valeurDeLaSalle;
+    private List<EMosntre> lesMonstre    = new ArrayList<EMosntre>();
     private List<EMosntre> MonstreChoisi = new ArrayList<EMosntre>();
 
-    public          CreationMonstre   (int nbMonstre , int nivMonstre , NatureElement element, int valeurDeLaSalle){
+    public  CreationMonstre (int nbMonstre , int nivMonstre , NatureElement element, int valeurDeLaSalle){
         this.nbMonstre = nbMonstre;
         this.nivMonstre = nivMonstre;
         this.element = element;
@@ -26,9 +26,9 @@ public class CreationMonstre  {
         List<EMosntre> myEnums = Arrays.asList(EMosntre.values());
         lesMonstre.addAll(myEnums);
     }
-    private Monstre  formationMonstre() {
+    public  Monstre   formationMonstre() {
             int c = valeurApparitionM();
-            if(c <=0 ){
+            if(c <= 0 ){
                 return null;
             }else {
                 EMosntre m = unMonstre(c);
@@ -38,7 +38,7 @@ public class CreationMonstre  {
 
                         , loi.statforce(m), loi.statAgile(m), loi.statR(m)
 
-                        , loi.statRMagic(m), loi.restcharisme(m), m, element, NomMonstre.A);
+                        , loi.statRMagic(m), loi.restcharisme(m), m, element, NomMonstre.A,m.isMagic(),nivMonstre);
             }
     }
     private EMosntre unMonstre(int c){
@@ -52,28 +52,14 @@ public class CreationMonstre  {
         MonstreChoisi.clear();
         return m;
     }
-    public int      valeurApparitionM (){
+    private int      valeurApparitionM (){
         int c;
             Random r = new Random();
             c = r.nextInt(10) + 1;
             valeurDeLaSalle =- c;
         return c;
     }
-    public int      bossDonjon        (){
+    private int      bossDonjon        (){
         return 0;
     }
-
-
-////////////////////////////////////
-    public void hello(){
-        System.out.println(nbMonstre +" est le nombre de monstre et " + nivMonstre +" est le niv des monstre " + element);
-        Monstre a = formationMonstre();
-        System.out.println(a.toString());
-    }
-    public  void listeration(){
-        for (EMosntre a: lesMonstre) {
-            System.out.println(a);
-        }
-    }
-
 }

@@ -1,7 +1,6 @@
 package Personnage;
 import Capacité.etat;
 import Capacité.LesCapacites;
-import Personnage.Monstre.AideFormation.EMosntre;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,9 +18,8 @@ public class Personnage implements  IPersonnage{
     private int resMagic;
     private etat etat;
     private Boolean vivant;
-    List<LesCapacites> tout;
-    private LesCapacites[] quatreCapacite;
-    public ArrayList<LesCapacites> CapaciteTout = new ArrayList<LesCapacites>();
+    protected int[] quatreCapacite = new int[4];
+    protected ArrayList<LesCapacites> CapaciteTout = new ArrayList<LesCapacites>();
     private long id;
     private static long IDNEXT = 1l;
     ///////////////////CONSTRUCTEUR ////////////////////
@@ -37,11 +35,9 @@ public class Personnage implements  IPersonnage{
         this.vivant = true;
         this.PV_MAX = point_vie;
         this.MANA_MAX = point_Mana;
-        List<LesCapacites> capa =  Arrays.asList(LesCapacites.values());
-        CapaciteTout.addAll(capa);
         this.id = IDNEXT;
         IDNEXT++;
-        quatreCapacite = new LesCapacites[]{null, null, null, null};
+        quatreCapacite = new int[]{0, 0, 0, 0};
     }
     ///////  Le personnage test ///////
     public Personnage(){
@@ -127,7 +123,7 @@ public class Personnage implements  IPersonnage{
     public long getId() {
         return id;
     }
-    public LesCapacites[] getQuatreCapacite() {
+    public int[] getQuatreCapacite() {
         return quatreCapacite;
     }
 
@@ -150,12 +146,9 @@ public class Personnage implements  IPersonnage{
         setPV_MAX(value2);
     }
     public void Les4capacite(LesCapacites c, int position){
-        quatreCapacite[position] = c;
+        quatreCapacite[position] = c.getId();
     }
-    public void remplirListCapacite(LesCapacites c){
-        CapaciteTout.add(c);
-    }
-    public LesCapacites utilCapa(int numero){
+    public int utilCapa(int numero){
         return quatreCapacite[numero];
     }
     public void subirdegats(LesCapacites capa, int degat){
@@ -192,11 +185,12 @@ public class Personnage implements  IPersonnage{
     }
     public int nbcapacite(){
         int nb = 0;
-        for (LesCapacites lesCapacites : quatreCapacite) {
-            if (lesCapacites != null) {
+        for (int i : quatreCapacite) {
+            if (i != 0) {
                 nb++;
             }
         }
         return nb;
     }
+
 }

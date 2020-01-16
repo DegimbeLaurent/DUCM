@@ -10,34 +10,34 @@ public class Loi_des_stats_Monstre {
         int stat;
         switch (n.getRatioApparition()){
             case 1 :
-                stat = 24 + 9*niveau;
+                stat = 24 + 9 * niveau;
                 break;
                 case 2 :
-                    stat = 19 + 8*niveau;
+                    stat = 19 + 8 * niveau;
                 break;
                 case 3 :
-                    stat = 18 + 7*niveau;
+                    stat = 18 + 7 * niveau;
                 break;
                 case 4 :
-                    stat = 17+ 6*niveau;
+                    stat = 17+ 6 * niveau;
                 break;
                 case 5 :
-                    stat = 15 + 5*niveau;
+                    stat = 15 + 5 * niveau;
                 break;
                 case 6 :
-                    stat = 13 + 4*niveau;
+                    stat = 13 + 4 * niveau;
                 break;
                 case 7 :
-                    stat = 12 + 3*niveau;
+                    stat = 12 + 3 * niveau;
                 break;
                 case 8 :
-                    stat = 11 + 3*niveau;
+                    stat = 11 + 3 * niveau;
                 break;
                 case 9 :
-                    stat = 9+ 2*niveau;
+                    stat = 9 + 2 * niveau;
                 break;
             case 10 :
-                stat = 7 + 2*niveau;
+                stat = 7 + 2 * niveau;
                     break;
             default:
                 stat = 15 + 10 * niveau;
@@ -63,6 +63,7 @@ public class Loi_des_stats_Monstre {
             case 9:
             case 10:
                 stat = 5*niveau;
+                break;
             default:
                 stat = 25*niveau;
         }
@@ -160,7 +161,7 @@ public class Loi_des_stats_Monstre {
              case 7:
              case 8:
                  stat = 13;
-                 if(niveau < 6){
+                 if(niveau > 6){
                      stat = 15;
                  }
                  break;
@@ -213,10 +214,10 @@ public class Loi_des_stats_Monstre {
                  stat = 7 + (niveau/2);
                  break;
              case 5:
-                 stat = 5 + (niveau/2);
+                 stat = 4 + (niveau/2);
                  break;
              case 7:
-                 stat = 3 + (niveau/3);
+                 stat = 7 + (niveau/3);
                  break;
 
              default:

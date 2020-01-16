@@ -1,6 +1,5 @@
 package Personnage.Hero;
 import Capacité.LesCapacites;
-import Capacité.etat;
 import Outils.Arme;
 import Outils.Armure;
 import Personnage.IPersonnage;
@@ -43,7 +42,7 @@ public interface IHero extends IPersonnage {
     void recup();
     String toString();
     void Les4capacite(LesCapacites c, int position);
-    LesCapacites utilCapa(int numero);
+    int utilCapa(int numero);
     void remplirListCapacite(LesCapacites c);
     void monteeNiveau(int value, int value2);
     /////////////// Hero ////////////////////

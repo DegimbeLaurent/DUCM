@@ -5,7 +5,7 @@ import Donjon.Salle.NatureElement;
 public enum etat {
 
     NORMAL(NatureElement.NATUREL, "Normal"),
-    MORT(NatureElement.Poussière,"Mort"),
+    MORT(NatureElement.POUSSIERE,"Mort"),
     FAIBLE(NatureElement.NATUREL,"Affaibli"),
     FORT(NatureElement.NATUREL,"Plein Forme"),
     BRULER(NatureElement.FEU, "Brulé(e)"),

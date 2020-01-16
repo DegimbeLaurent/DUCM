@@ -2,19 +2,19 @@ package Capacité;
 
 public enum LesCapacites {
 
-    BOULEDEFEU(    1, 1,"Boule de Feu",    3,true, 1,1,"e","feu",    "g",true),
-    BOULEDEGLACE(  2, 1,"Boule de Glace",  3,true, 1,1,"e","glace",  "g", true),
-    BOULEDEVENT(   3, 1,"Boule de Vent",   3,true, 1,1,"e","vent",   "g", true),
-    BOULEDETERRE(  4, 1,"Balle de Terre",  3,true, 1,1,"e","terre",  "g",true),
-    BOULEDEAU(     5, 1,"Boule de eau",    3,true, 1,1,"e","eau",    "g",true),
-    BOULEDETENEBRE(6, 1,"Boule de ténèbre",3,true, 1,1,"e","tenebre","g",true),
-    ;
-   /* ONDEFOLIE(     7, 2,"Vague de folie",  0,true, 1,1,"e","folie",  "m"),
-    COUPDANSLEDOS( 8, 1,"Coup dans le dos",4,false,1,1,"e","Normal", "g"),
-    BOUCLIERSACRE( 9, 1,"Bouclier Sacré",  3,false,1,1,"a","Sacré",  "h"),
-    FLECHEMORTEL(  10,1,"Flèche de batard",2,true, 1,1,"e","Normal", "g"),
-    SOINDIVIN(     11,1,"Soin de Dieu ",   6,true, 1,1,"a","Soin",   "h"),
-    DANSEEROTIQUE( 12,1,"Danse Erotique",  1,true, 1,1,"a","Groupe", "g"); */
+    BOULEDEFEU    (1, 1,"Boule de Feu",    3,true, 1,1,"e","feu",    "g", true ),
+    BOULEDEGLACE  (2, 1,"Boule de Glace",  3,true, 1,1,"e","glace",  "g", true ),
+    BOULEDEVENT   (3, 1,"Boule de Vent",   3,true, 1,1,"e","vent",   "g", true ),
+    BOULEDETERRE  (4, 1,"Balle de Terre",  3,true, 1,1,"e","terre",  "g", true ),
+    BOULEDEAU     (5, 1,"Boule de eau",    3,true, 1,1,"e","eau",    "g", true ),
+    BOULEDETENEBRE(6, 1,"Boule de ténèbre",3,true, 1,1,"e","tenebre","g", true ),
+    ONDEFOLIE     (7, 2,"Vague de folie",  2,true, 1,1,"e","normal", "m", false),
+    COUPDANSLEDOS (8, 1,"Coup dans le dos",4,false,1,1,"e","normal", "g", false),
+    BOUCLIERSACRE (9, 1,"Bouclier Sacré",  3,false,1,1,"a","sacré",  "h", true ),
+    FLECHEMORTEL  (10,1,"Flèche de batard",2,true, 1,1,"e","normal", "g", true),
+    SOINDIVIN     (11,2,"Soin de Dieu ",   6,true, 1,1,"a","soin",   "h", true ),
+    DANSEEROTIQUE (12,2,"Danse Erotique",  1,true, 1,4,"a","normal", "h", false),
+    MORSURE       (13,1,"Morsure"         ,2,false,1,1,"e","normal", "m", false);
 
     // ///// / / / // ATTRIBUT / / / / / / / / / / / //  // /
     private int id;
@@ -74,5 +74,8 @@ public enum LesCapacites {
     }
     public boolean isGenre() {
         return genre;
+    }
+    public String toString(){
+        return "Capacité [" + getNom() + "]";
     }
 }

@@ -3,46 +3,51 @@ package Personnage.Monstre.AideFormation;
 import Donjon.Salle.NatureElement;
 
 public enum EMosntre {
-    DRAGON       (true ,1,"Dragon"),
-    LEVIATHAN    (false,1,"Léviathan"),
+    DRAGON       (true ,1,"Dragon",true),
+    LEVIATHAN    (false,1,"Léviathan",true),
 
-    DRAGONT       (false,2,"Dragon Terrestre"),
-    GOLEM        (false,2,"Golem"),
-    TROLL        (false,2,"Troll"),
+    DRAGONT       (false,2,"Dragon Terrestre",true),
+    GOLEM        (false,2,"Golem",false),
+    TROLL        (false,2,"Troll",false),
 
-    GOLEMAILEE   (true ,3,"Golem volant"),
-    WYVERNE      (true,3,"Wyverne à 4 ailes"),
+    GOLEMAILEE   (true ,3,"Golem volant",true),
+    WYVERNE      (true,3,"Wyverne à 4 ailes",true),
 
-    LICHE        (false,4,"Liche"),
-    ARMUREMAGIQUE(false,4,"Armure maudite"),
+    LICHE        (false,4,"Liche",true),
+    ARMUREMAGIQUE(false,4,"Armure maudite",true),
 
-    AIGLEGEANT   (true,5,"Aigle Céleste"),
-    OURSGEANT    (false,5,"Roi Ours"),
+    AIGLEGEANT   (true,5,"Aigle Céleste",false),
+    OURSGEANT    (false,5,"Roi Ours",false),
 
-    ORC          (false,6,"Orc"),
-    OURS         (false,6,"Ours des montagnes"),
+    ORC          (false,6,"Orc",false),
+    OURS         (false,6,"Ours des montagnes",false),
 
-    LOUPS        (false,7,"Loups"),
-    AIGLE        (true,7,"Aigle charognard"),
+    LOUPS        (false,7,"Loups",false),
+    AIGLE        (true,7,"Aigle charognard",false),
 
-    MAGESQUELETTE(false,8,"Squelette mage"),
-    OEILMALEFIQUE(true,8,"Oeil maudit "),
+    MAGESQUELETTE(false,8,"Squelette mage",true),
+    OEILMALEFIQUE(true,8,"Oeil maudit ",true),
 
-    GOBELIN      (false,9,"Gobelin"),
-    CADAVRE      (false,9,"Zombie faible"),
+    GOBELIN      (false,9,"Gobelin",false),
+    CADAVRE      (false,9,"Zombie faible",false),
 
-    SLIME        (false,10,"Slime"),
-    HOMMERAT     (false,10,"Homme-rat");
+    SLIME        (false,10,"Slime",true),
+    HOMMERAT     (false,10,"Homme-rat",false);
 
     private boolean vol;
     private int ratioApparition;
     private String race;
-    EMosntre(boolean vol, int ratioApparition, String race){
+    private boolean magic;
+    EMosntre(boolean vol, int ratioApparition, String race, boolean magic){
         this.vol = vol;
         if( ratioApparition < 11 ) {
             this.ratioApparition = ratioApparition;
         }
         this.race = race;
+        this.magic = magic;
+    }
+    public boolean isMagic() {
+        return magic;
     }
     public String getRace() {
         return race;

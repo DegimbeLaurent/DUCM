@@ -69,6 +69,9 @@ public class Hero extends Personnage implements IHero{
     public void setEndmax(int value) {
         this.endMax = value;
     }
+    public void remplirListCapacite(LesCapacites c) {
+
+    }
     public void gainExp(int value){
         System.out.println(" Vous gagnez de l'expérience: " + value + " exp");
         int exp = getExperience() + value;

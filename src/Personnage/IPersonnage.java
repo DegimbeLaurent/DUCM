@@ -23,7 +23,7 @@ public interface IPersonnage  {
     void setPoint_vie(int point_vie);
     int getResMagic();
     void setResMagic(int resMagic);
-    LesCapacites[] getQuatreCapacite();
+    int[] getQuatreCapacite();
     long getId();
     //////////////////////// METHODE ///////////////
     void subirdegats(LesCapacites capa , int degat);
@@ -31,9 +31,7 @@ public interface IPersonnage  {
     void recup();
     String toString();
     void Les4capacite(LesCapacites c ,int position);
-    LesCapacites utilCapa(int numero);
-    void remplirListCapacite(LesCapacites c);
+    int utilCapa(int numero);
     void monteeNiveau(int value, int value2);
     int nbcapacite();
-
 }
